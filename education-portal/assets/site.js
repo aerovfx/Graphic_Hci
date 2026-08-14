@@ -15,11 +15,33 @@
     if(!course)return;
     document.getElementById('course-title').textContent=course.title;document.title=course.title+' — Graphics & HCI';
     const requested=params.get('doc'), selected=course.documents.find(d=>d.path===requested)||course.documents[0];
+    document.getElementById('file-name').textContent=selected.path;
+    document.getElementById('doc-code').textContent='DOC://'+selected.path.split('/').pop().toUpperCase();
+    document.getElementById('view-source').href='https://github.com/aerovfx/Graphic_Hci/blob/main/education-portal/'+selected.path;
     const list=document.getElementById('doc-list'), search=document.getElementById('doc-search');
     const render=()=>{const q=search.value.toLocaleLowerCase('vi');let kind='';list.innerHTML=course.documents.filter(d=>d.title.toLocaleLowerCase('vi').includes(q)).map(d=>{const heading=d.kind!==kind?`<span class="doc-kind">${esc(kind=d.kind)}</span>`:'';return heading+`<a class="doc-link ${d.path===selected.path?'active':''}" href="?course=${encodeURIComponent(course.id)}&doc=${encodeURIComponent(d.path)}">${esc(d.title)}</a>`}).join('')};
-    search.addEventListener('input',render);render();loadDocument(selected);
+    search.addEventListener('input',render);render();renderResources(course,selected);loadDocument(selected);
   }
-  function loadDocument(doc){fetch(base+doc.path).then(r=>{if(!r.ok)throw Error('Không tải được tài liệu');return r.text()}).then(text=>{document.getElementById('markdown').innerHTML=doc.format==='md'?markdown(text,doc.path):codeDocument(text,doc)}).catch(e=>document.getElementById('markdown').innerHTML=`<p>${esc(e.message)}</p>`)}
+  function renderResources(course,selected){
+    const nav=document.getElementById('resource-nav');if(!nav)return;
+    const kinds=['1. Lesson','2. Presentation','3. Exercise','4. Code','5. Project'];
+    const labels=['Lesson','Presentation','Exercise','Code','Project'];
+    const week=(selected.path.match(/week\d+/)||[])[0];
+    nav.innerHTML=kinds.map((kind,index)=>{const docs=course.documents.filter(d=>d.kind===kind);const target=docs.find(d=>week&&d.path.includes(week))||docs[0];if(!target)return'';return `<a class="${selected.kind===kind?'active':''}" href="?course=${encodeURIComponent(course.id)}&doc=${encodeURIComponent(target.path)}"><b>0${index+1}</b><span>${labels[index]}</span><i>↗</i></a>`}).join('');
+  }
+  function loadDocument(doc){fetch(base+doc.path).then(r=>{if(!r.ok)throw Error('Không tải được tài liệu');return r.text()}).then(text=>{document.getElementById('markdown').innerHTML=doc.format==='md'?markdown(text,doc.path):codeDocument(text,doc);enhanceReader()}).catch(e=>document.getElementById('markdown').innerHTML=`<p>${esc(e.message)}</p>`)}
+  function enhanceReader(){
+    const content=document.getElementById('markdown'),toc=document.getElementById('toc');if(!content||!toc)return;
+    toc.querySelectorAll('a').forEach(a=>a.remove());
+    const slug=(s,i)=>s.toLocaleLowerCase('vi').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')||`section-${i+1}`;
+    const headings=[...content.querySelectorAll('h2,h3')];
+    headings.forEach((h,i)=>{h.id=h.id||slug(h.textContent,i);const a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;if(h.tagName==='H3')a.className='subheading';toc.appendChild(a)});
+    const children=[...content.children],first=children.findIndex(n=>n.tagName==='H2');
+    if(first>0){const hero=document.createElement('header');hero.className='doc-hero';content.insertBefore(hero,children[0]);children.slice(0,first).forEach(n=>hero.appendChild(n))}
+    [...content.children].forEach(node=>{if(node.tagName!=='H2')return;const section=document.createElement('section');section.className='doc-section';content.insertBefore(section,node);let current=node;while(current&&!(current!==node&&current.tagName==='H2')){const next=current.nextElementSibling;section.appendChild(current);current=next}});
+    const copy=document.getElementById('copy-link');if(copy)copy.onclick=async()=>{await navigator.clipboard.writeText(location.href);const old=copy.innerHTML;copy.innerHTML='COPIED <span>✓</span>';setTimeout(()=>copy.innerHTML=old,1400)};
+  }
+  addEventListener('scroll',()=>{const bar=document.getElementById('reading-progress');if(!bar)return;const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=`${max?scrollY/max*100:0}%`},{passive:true});
   function codeDocument(source,doc){return `<h1>${esc(doc.title)}</h1><p><strong>4. Code</strong> · ${esc((doc.format||'text').toUpperCase())}</p><pre><code class="language-${esc(doc.format||'text')}">${esc(source)}</code></pre>`}
   function markdown(md,path){
     const dir=path.slice(0,path.lastIndexOf('/')+1);let code=[];

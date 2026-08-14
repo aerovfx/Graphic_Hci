@@ -1,12 +1,53 @@
 <!doctype html>
 <html lang="vi">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Khóa học — Graphics & HCI</title><link rel="stylesheet" href="assets/site.css"></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#05070a">
+  <title>Khóa học — Graphics & HCI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/course-reader.css">
+</head>
 <body class="reader-page">
-  <header class="site-header"><a class="brand" href="./"><span>◈</span> Graphics & HCI</a><nav><a href="./#courses">Tất cả khóa học</a><a href="tools/khao-sat/portal.html">Khảo sát</a></nav></header>
-  <main class="reader-shell">
-    <aside class="reader-nav"><a class="back" href="./#courses">← Danh mục</a><h2 id="course-title">Đang tải…</h2><label class="search">⌕ <input id="doc-search" type="search" placeholder="Tìm bài học…"></label><div id="doc-list"></div></aside>
-    <article class="markdown" id="markdown"><p>Đang tải nội dung…</p></article>
-  </main>
+  <div class="reading-progress" id="reading-progress"></div>
+  <header class="course-header">
+    <a class="course-brand" href="./#courses"><span class="brand-mark">G</span><strong>GRAPHICS<span>HCI</span></strong></a>
+    <div class="system-state"><i></i> LEARNING NODE ONLINE</div>
+    <div class="header-actions">
+      <a class="classroom-link" href="tools/khao-sat/portal.html">CLASSROOM <span>◎</span></a>
+      <a class="source-link" href="https://github.com/aerovfx/Graphic_Hci" target="_blank" rel="noreferrer">SOURCE <span>↗</span></a>
+      <a class="back-link" href="./#courses">← LỘ TRÌNH</a>
+    </div>
+  </header>
+
+  <div class="course-shell">
+    <aside class="course-sidebar">
+      <p class="terminal-label">// DOCUMENT</p>
+      <p class="file-name" id="file-name">Đang tải…</p>
+      <nav class="toc" id="toc" aria-label="Mục lục bài học">
+        <p class="terminal-label">// ON THIS PAGE</p>
+      </nav>
+      <details class="course-library">
+        <summary>COURSE LIBRARY <span>＋</span></summary>
+        <h2 id="course-title">Đang tải…</h2>
+        <label class="doc-search">⌕ <input id="doc-search" type="search" placeholder="Tìm tài liệu…"></label>
+        <div id="doc-list"></div>
+      </details>
+      <div class="sidebar-actions">
+        <button id="copy-link" type="button">COPY LINK <span>↗</span></button>
+        <a id="view-source" href="https://github.com/aerovfx/Graphic_Hci" target="_blank" rel="noreferrer">VIEW SOURCE <span>↗</span></a>
+      </div>
+    </aside>
+
+    <main class="course-main">
+      <div class="doc-status"><span id="doc-code">DOC://LOADING</span><span>VERIFIED_CONTENT</span></div>
+      <nav class="resource-nav" id="resource-nav" aria-label="Nội dung khóa học"></nav>
+      <article class="markdown-body" id="markdown"><p>Đang tải nội dung…</p></article>
+      <footer class="course-footer"><p>END_OF_DOCUMENT</p><a href="./#courses">Chọn khóa học tiếp theo →</a></footer>
+    </main>
+  </div>
   <script src="assets/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,21 @@
+{
+  "classes": [
+    {"id":"DEMO-UX","name":"Lớp UI/UX Demo","teacher":"Giảng viên","room":"Studio","schedule":"Lịch học tùy chỉnh"},
+    {"id":"DEMO-GAME","name":"Lớp Game Dev Demo","teacher":"Giảng viên","room":"Game Lab","schedule":"Lịch học tùy chỉnh"}
+  ],
+  "students": [
+    {"id":"demo-ux-01","name":"Học viên UX 01","classId":"DEMO-UX","avatar":"🧑‍🎨"},
+    {"id":"demo-ux-02","name":"Học viên UX 02","classId":"DEMO-UX","avatar":"👩‍🎨"},
+    {"id":"demo-game-01","name":"Học viên Game 01","classId":"DEMO-GAME","avatar":"🧑‍💻"},
+    {"id":"demo-game-02","name":"Học viên Game 02","classId":"DEMO-GAME","avatar":"👩‍💻"}
+  ],
+  "sessions": [
+    {"id":1,"title":"Tuần 01","phase":1},{"id":2,"title":"Tuần 02","phase":1},{"id":3,"title":"Tuần 03","phase":1},{"id":4,"title":"Tuần 04","phase":2},{"id":5,"title":"Tuần 05","phase":2},{"id":6,"title":"Tuần 06","phase":2},{"id":7,"title":"Tuần 07","phase":3},{"id":8,"title":"Tuần 08","phase":3},{"id":9,"title":"Tuần 09","phase":3},{"id":10,"title":"Tuần 10 · Demo","phase":4}
+  ],
+  "criteria": [
+    {"id":"teamwork","label":"Hợp tác","icon":"🤝","desc":"Phối hợp và phản hồi xây dựng"},
+    {"id":"craft","label":"Chất lượng sản phẩm","icon":"✨","desc":"Sản phẩm đúng yêu cầu và hoàn thiện"},
+    {"id":"problem","label":"Giải quyết vấn đề","icon":"🧩","desc":"Tìm và kiểm chứng giải pháp"},
+    {"id":"presentation","label":"Trình bày","icon":"🎤","desc":"Giải thích quyết định rõ ràng"}
+  ]
+}

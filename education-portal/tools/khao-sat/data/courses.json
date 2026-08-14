@@ -1,0 +1,39 @@
+{
+  "updatedAt": "2026-08-14",
+  "criteriaGroups": [
+    {
+      "id": "design",
+      "name": "Thiết kế & Trải nghiệm người dùng",
+      "criteria": [
+        {"id": "research", "label": "Nghiên cứu", "icon": "🔎", "desc": "Dùng bằng chứng và hiểu đúng người dùng"},
+        {"id": "clarity", "label": "Rõ ràng", "icon": "◎", "desc": "Luồng và thông tin dễ hiểu"},
+        {"id": "craft", "label": "Chất lượng thiết kế", "icon": "✦", "desc": "Chi tiết thị giác và tính nhất quán"},
+        {"id": "accessibility", "label": "Khả năng tiếp cận", "icon": "♿", "desc": "Thiết kế bao trùm và dễ sử dụng"},
+        {"id": "presentation", "label": "Thuyết trình", "icon": "🎤", "desc": "Lập luận và trình bày thuyết phục"},
+        {"id": "teamwork", "label": "Hợp tác", "icon": "🤝", "desc": "Phối hợp và phản hồi xây dựng"}
+      ]
+    },
+    {
+      "id": "gamedev",
+      "name": "Game Development",
+      "criteria": [
+        {"id": "gameplay", "label": "Gameplay", "icon": "🎮", "desc": "Vòng lặp chơi rõ ràng và thú vị"},
+        {"id": "coding", "label": "Kỹ thuật", "icon": "💻", "desc": "Code đúng, dễ đọc và có cấu trúc"},
+        {"id": "debugging", "label": "Giải quyết vấn đề", "icon": "🧩", "desc": "Tìm nguyên nhân và sửa lỗi có phương pháp"},
+        {"id": "polish", "label": "Độ hoàn thiện", "icon": "✨", "desc": "Hình ảnh, âm thanh và cảm giác điều khiển"},
+        {"id": "presentation", "label": "Demo sản phẩm", "icon": "🎤", "desc": "Trình bày quyết định và kết quả"},
+        {"id": "teamwork", "label": "Hợp tác", "icon": "🤝", "desc": "Quản lý công việc và hỗ trợ nhóm"}
+      ]
+    }
+  ],
+  "courses": [
+    {"id":"ui-ux-design-10weeks","icon":"◈","title":"UI/UX Design","subtitle":"Lộ trình thực hành 10 tuần","group":"design","docPath":"courses/ui-ux-design-10weeks/INDEX.md","sessions":[
+      {"id":1,"title":"Tuần 01","phase":1},{"id":2,"title":"Tuần 02","phase":1},{"id":3,"title":"Tuần 03","phase":1},{"id":4,"title":"Tuần 04","phase":2},{"id":5,"title":"Tuần 05","phase":2},{"id":6,"title":"Tuần 06","phase":2},{"id":7,"title":"Tuần 07","phase":3},{"id":8,"title":"Tuần 08","phase":3},{"id":9,"title":"Tuần 09","phase":3},{"id":10,"title":"Tuần 10 · Demo","phase":4}]},
+    {"id":"unity-csharp-10weeks","icon":"⬡","title":"Unity 2D & C#","subtitle":"Gameplay và production 10 tuần","group":"gamedev","docPath":"courses/unity-csharp-10weeks/INDEX.md","sessions":[
+      {"id":1,"title":"Tuần 01","phase":1},{"id":2,"title":"Tuần 02","phase":1},{"id":3,"title":"Tuần 03","phase":1},{"id":4,"title":"Tuần 04","phase":2},{"id":5,"title":"Tuần 05","phase":2},{"id":6,"title":"Tuần 06","phase":2},{"id":7,"title":"Tuần 07","phase":3},{"id":8,"title":"Tuần 08","phase":3},{"id":9,"title":"Tuần 09","phase":3},{"id":10,"title":"Tuần 10 · Demo","phase":4}]},
+    {"id":"unreal-rpg-10weeks","icon":"◆","title":"Unreal Engine 5 RPG","subtitle":"Combat, AI và boss fight","group":"gamedev","docPath":"courses/unreal-rpg-10weeks/INDEX.md","sessions":[
+      {"id":1,"title":"Tuần 01","phase":1},{"id":2,"title":"Tuần 02","phase":1},{"id":3,"title":"Tuần 03","phase":1},{"id":4,"title":"Tuần 04","phase":2},{"id":5,"title":"Tuần 05","phase":2},{"id":6,"title":"Tuần 06","phase":2},{"id":7,"title":"Tuần 07","phase":3},{"id":8,"title":"Tuần 08","phase":3},{"id":9,"title":"Tuần 09","phase":3},{"id":10,"title":"Tuần 10 · Demo","phase":4}]},
+    {"id":"unreal-engine-5-cpp-soulslike-10weeks","icon":"⚔","title":"UE5 C++ Soulslike","subtitle":"Echoes of Terra · 10 tuần","group":"gamedev","docPath":"courses/unreal-engine-5-cpp-soulslike-10weeks/INDEX.md","sessions":[
+      {"id":1,"title":"Tuần 01","phase":1},{"id":2,"title":"Tuần 02","phase":1},{"id":3,"title":"Tuần 03","phase":1},{"id":4,"title":"Tuần 04","phase":2},{"id":5,"title":"Tuần 05","phase":2},{"id":6,"title":"Tuần 06","phase":2},{"id":7,"title":"Tuần 07","phase":3},{"id":8,"title":"Tuần 08","phase":3},{"id":9,"title":"Tuần 09","phase":3},{"id":10,"title":"Tuần 10 · Demo","phase":4}]}
+  ]
+}

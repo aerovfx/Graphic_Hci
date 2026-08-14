@@ -42,6 +42,15 @@
     const copy=document.getElementById('copy-link');if(copy)copy.onclick=async()=>{await navigator.clipboard.writeText(location.href);const old=copy.innerHTML;copy.innerHTML='COPIED <span>✓</span>';setTimeout(()=>copy.innerHTML=old,1400)};
   }
   addEventListener('scroll',()=>{const bar=document.getElementById('reading-progress');if(!bar)return;const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=`${max?scrollY/max*100:0}%`},{passive:true});
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduceMotion){
+    const reveal=()=>document.querySelectorAll('.hero-copy,.hero-console,.hero-rail,.tools-heading,.tool-grid>a,.section-head,.course-card,.doc-hero,.doc-section').forEach(el=>el.classList.add('motion-reveal'));
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -5%'});
+    const observe=()=>{reveal();document.querySelectorAll('.motion-reveal:not(.motion-ready)').forEach((el,index)=>{el.classList.add('motion-ready');el.style.setProperty('--reveal-delay',`${Math.min(index%4,3)*70}ms`);observer.observe(el)})};
+    observe();
+    new MutationObserver(observe).observe(document.body,{childList:true,subtree:true});
+    addEventListener('pointermove',event=>{document.documentElement.style.setProperty('--pointer-x',`${event.clientX}px`);document.documentElement.style.setProperty('--pointer-y',`${event.clientY}px`)},{passive:true});
+  }
   function codeDocument(source,doc){return `<h1>${esc(doc.title)}</h1><p><strong>4. Code</strong> · ${esc((doc.format||'text').toUpperCase())}</p><pre><code class="language-${esc(doc.format||'text')}">${esc(source)}</code></pre>`}
   function markdown(md,path){
     const dir=path.slice(0,path.lastIndexOf('/')+1);let code=[];

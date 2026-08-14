@@ -1890,42 +1890,6 @@
           "format": "cs"
         },
         {
-          "title": "Examples.assets.cache",
-          "path": "courses/unity-csharp-10weeks/code/obj/Debug/net10.0/Examples.assets.cache",
-          "kind": "4. Code",
-          "format": "cache"
-        },
-        {
-          "title": "Examples.csproj.nuget.dgspec.json",
-          "path": "courses/unity-csharp-10weeks/code/obj/Examples.csproj.nuget.dgspec.json",
-          "kind": "4. Code",
-          "format": "json"
-        },
-        {
-          "title": "Examples.csproj.nuget.g.props",
-          "path": "courses/unity-csharp-10weeks/code/obj/Examples.csproj.nuget.g.props",
-          "kind": "4. Code",
-          "format": "props"
-        },
-        {
-          "title": "Examples.csproj.nuget.g.targets",
-          "path": "courses/unity-csharp-10weeks/code/obj/Examples.csproj.nuget.g.targets",
-          "kind": "4. Code",
-          "format": "targets"
-        },
-        {
-          "title": "project.assets.json",
-          "path": "courses/unity-csharp-10weeks/code/obj/project.assets.json",
-          "kind": "4. Code",
-          "format": "json"
-        },
-        {
-          "title": "project.nuget.cache",
-          "path": "courses/unity-csharp-10weeks/code/obj/project.nuget.cache",
-          "kind": "4. Code",
-          "format": "cache"
-        },
-        {
           "title": "01_muc_tieu_bai_hoc.cs",
           "path": "courses/unity-csharp-10weeks/code/week01/01_muc_tieu_bai_hoc.cs",
           "kind": "4. Code",

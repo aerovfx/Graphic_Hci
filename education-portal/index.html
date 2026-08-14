@@ -3,34 +3,64 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#030508">
   <meta name="description" content="Kho học liệu Graphics & HCI, khảo sát và đánh giá lớp học">
   <title>Graphics & HCI Learning Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/adaptive.css">
 </head>
-<body>
+<body class="cyber-home">
+  <div class="reading-progress"></div>
   <header class="site-header">
-    <a class="brand" href="./"><span>◈</span> Graphics & HCI</a>
-    <nav><a href="#courses">Khóa học</a><a href="tools/khao-sat/portal.html">Khảo sát lớp học</a><a href="tools/khao-sat/admin.html">Quản lý điểm</a></nav>
+    <a class="brand" href="./"><span>G</span><strong>GRAPHICS<em>HCI</em></strong></a>
+    <div class="system-state"><i></i> LEARNING NODE ONLINE</div>
+    <nav>
+      <a href="#courses">COURSES</a>
+      <a class="classroom-link" href="tools/khao-sat/portal.html">CLASSROOM ◎</a>
+      <a href="https://github.com/aerovfx/Graphic_Hci" target="_blank" rel="noreferrer">SOURCE ↗</a>
+    </nav>
   </header>
+
   <main>
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">THIẾT KẾ · ĐỒ HỌA · GAME DEV</p>
-        <h1>Học bằng<br>thực hành và<br><em>phản hồi.</em></h1>
-        <p class="lead">Đọc bài học Markdown, chạy mẫu, hoàn thành challenge và nhận phản hồi sau từng buổi học.</p>
-        <div class="hero-actions"><a class="button primary" href="#courses">Bắt đầu hành trình</a><a class="text-link" href="tools/khao-sat/portal.html">Dành cho lớp học ↗</a></div>
+        <p class="eyebrow">// GRAPHICS · INTERACTION · GAME DEVELOPMENT</p>
+        <h1>Build.<br><em>Test.</em><br>Learn.</h1>
+        <p class="lead">Một learning node cho UI/UX, Unity và Unreal Engine: đọc học liệu Markdown, chạy code, hoàn thành challenge và nhận phản hồi sau từng buổi.</p>
+        <div class="hero-actions"><a class="button primary" href="#courses">EXPLORE COURSES <span>↘</span></a><a class="text-link" href="tools/khao-sat/portal.html">OPEN CLASSROOM ↗</a></div>
       </div>
-      <div class="science-orbit" aria-hidden="true"><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><span class="orbit orbit-c"></span><span class="core">G</span><i class="particle p1"></i><i class="particle p2"></i><i class="particle p3"></i><i class="particle p4"></i></div>
-      <aside class="hero-insight"><span>PROJECT-BASED LEARNING</span><p>Đi từ UI/UX đến Unity và Unreal Engine qua bài học, code mẫu, bài tập và dự án.</p><a href="#courses">Xem 4 lộ trình ↓</a></aside>
-      <div class="hero-index"><strong>04</strong><small>GRAPHICS & HCI</small><b>Khóa học thực hành</b><p>4 khóa học · 40 bài theo tuần · khảo sát, đánh giá đồng đẳng và chấm điểm giáo viên.</p></div>
+      <div class="hero-console" aria-label="Tình trạng hệ thống học tập">
+        <div class="console-head"><span>NODE://GRAPHICS_HCI</span><span class="online">● ONLINE</span></div>
+        <div class="console-art" aria-hidden="true"><b>G</b><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i></div>
+        <div class="console-stats"><span><b>04</b> COURSES</span><span><b>40</b> LESSONS</span><span><b>05</b> RESOURCE TYPES</span></div>
+      </div>
+      <aside class="hero-rail">
+        <p class="eyebrow">// LEARNING STACK</p>
+        <ol><li><b>01</b><span>LESSON</span></li><li><b>02</b><span>PRESENTATION</span></li><li><b>03</b><span>EXERCISE</span></li><li><b>04</b><span>CODE</span></li><li><b>05</b><span>PROJECT</span></li></ol>
+      </aside>
     </section>
+
+    <section class="classroom-tools" aria-labelledby="tools-title">
+      <div class="section-kicker"><span>CLASSROOM://WORKFLOW</span><i></i></div>
+      <div class="tools-heading"><div><p class="eyebrow">// FEEDBACK LOOP</p><h2 id="tools-title">Học. Phản hồi.<br>Tiến bộ.</h2></div><p>Mọi công cụ lớp học chạy offline-first trong trình duyệt và có thể kết nối Google Sheets khi giáo viên cần đồng bộ tập trung.</p></div>
+      <div class="tool-grid">
+        <a href="tools/khao-sat/portal.html"><b>01</b><i>◎</i><h3>Classroom Portal</h3><p>Chọn khóa học, lớp, buổi và học viên.</p><span>ENTER NODE ↗</span></a>
+        <a href="tools/khao-sat/index.html"><b>02</b><i>▤</i><h3>Student Survey</h3><p>Thu phản hồi trải nghiệm theo từng buổi.</p><span>OPEN SURVEY ↗</span></a>
+        <a href="tools/khao-sat/danh-gia.html"><b>03</b><i>◇</i><h3>Peer Assessment</h3><p>Đánh giá đồng đẳng theo rubric 1–5.</p><span>START REVIEW ↗</span></a>
+        <a href="tools/khao-sat/admin.html"><b>04</b><i>▥</i><h3>Teacher Grading</h3><p>Chấm điểm, nhận xét và xuất CSV/JSON.</p><span>OPEN DASHBOARD ↗</span></a>
+      </div>
+    </section>
+
     <section id="courses" class="section">
-      <div class="section-head"><div><p class="eyebrow">DANH MỤC</p><h2>Khóa học đang có</h2></div><label class="search">⌕ <input id="search" type="search" placeholder="Tìm môn học, lớp, chủ đề…"></label></div>
+      <div class="section-kicker"><span>CATALOG://MARKDOWN</span><i></i></div>
+      <div class="section-head"><div><p class="eyebrow">// COURSE INDEX</p><h2>Chọn lộ trình</h2></div><label class="search">⌕ <input id="search" type="search" placeholder="SEARCH COURSE…"></label></div>
       <div id="course-grid" class="course-grid" aria-live="polite"><p>Đang tải danh mục…</p></div>
     </section>
   </main>
-  <footer>Graphics & HCI Learning Hub · Nội dung được đọc trực tiếp từ các file Markdown trong kho GitHub.</footer>
+  <footer><span>GRAPHICS_HCI://END</span><p>Nội dung được đọc trực tiếp từ Markdown · Offline-first classroom tools</p><a href="#">BACK TO TOP ↑</a></footer>
   <script src="assets/site.js"></script>
 </body>
 </html>

@@ -1,0 +1,65 @@
+name: Deploy Graphics & HCI Learning Hub
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "education-portal/**"
+      - ".github/workflows/education-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: education-portal
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Validate and build course catalog
+        run: |
+          python3 scripts/build_course_materials.py
+          python3 scripts/build_course_catalog.py
+          python3 -m json.tool courses/catalog.json >/dev/null
+          python3 -m json.tool tools/khao-sat/data/courses.json >/dev/null
+          python3 -m json.tool tools/khao-sat/data/students.json >/dev/null
+
+      - name: Build static website
+        run: |
+          npm run build
+          touch dist/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: education-portal/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
